@@ -26,7 +26,7 @@ font-family: 'Ubuntu', sans-serif;
 header>.container>.row{padding-left: 8.5%;  }
 .logo{padding-top: 1%}
 .menu_bar{padding-left: 0%; padding-top: 0.5%;}
-.navbar{padding: .5rem 5rem;}
+.navbar{padding:0;justify-content: flex-end;}
 
 .dropdown-menu{min-width: 5rem;}
 .navbar-nav li, .dropdown-item{padding-right: 3%; font-family: 'Ubuntu', sans-serif; font-weight: bold; font-size:0.9rem; }
@@ -94,6 +94,8 @@ padding-top: 0.5%;
     padding-bottom: 2%;
     padding-top: 12%;
 }
+.slid>a{background: url('../img/slider.png') no-repeat center top; width:20px; height: 20px; display:inline-block;}
+.slid>a:hover{cursor:pointer; background: url('../img/slider_select.png') no-repeat center top; }
 
 /*третий блок*/
 #services>.container{padding-top: 5%;}
