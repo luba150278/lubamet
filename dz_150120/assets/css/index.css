@@ -17,15 +17,21 @@ font-style: normal;
 .btn-primary{border: 0; padding-left: 5%; padding-top:2%; padding-right: 5%; padding-bottom:2%;font-family: 'Ubuntu Condensed', sans-serif; font-size:0.8rem; background: #218fc0;}
 
 header>.container{padding-top: 1%; padding-bottom: 0.4%;}
-.nav{font-size: 1rem;
+.navbar-nav{font-size: 1rem;
 color: #515862;
 font-family: 'Ubuntu', sans-serif;
-text-align: center;}
+/*text-align: center;*/
+}
 
 header>.container>.row{padding-left: 8.5%;  }
 .logo{padding-top: 1%}
-.menu_bar{padding-left: 15%; padding-top: 0.5%;}
-.nav>li{padding-right: 3%; font-family: 'Ubuntu', sans-serif; font-weight: bold; font-size:0.9rem; }
+.menu_bar{padding-left: 0%; padding-top: 0.5%;}
+.navbar{padding: .5rem 5rem;}
+
+.dropdown-menu{min-width: 5rem;}
+.navbar-nav li, .dropdown-item{padding-right: 3%; font-family: 'Ubuntu', sans-serif; font-weight: bold; font-size:0.9rem; }
+.dropdown-item{color:#55565b; padding: auto;}
+.navbar-nav li:hover,.dropdown-item:hover{background: #fa8661;}
 a{color:#55565b;}
 .blog{
  	
@@ -167,5 +173,5 @@ q{font-family: 'Ubuntu Condensed', sans-serif; font-size:1.5rem;}
 
 
 @media screen and (max-width: 768px){
-    .nav>li{padding: 0;}
+    .navbar-nav li{padding: 0;}
 }
