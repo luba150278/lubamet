@@ -222,17 +222,9 @@ q{font-family: 'Ubuntu Condensed', sans-serif; font-size:1.5rem;}
 .sel_or_not{padding-left: 55%;}
 
 .thumb1{margin-top: 2%;}
-.thumb2{
-            background: url('../img/photos.png')  no-repeat center top; /* Добавляем фон */
-             background-size:cover;
-             padding: 20%;
-
-}
-.thumb2 h3, .thumb2 p, .thumb2 button{visibility: hidden;}
-.thumb2:hover{ background: url('../img/camera_icon_empty.png')  no-repeat center top; /* Добавляем фон */
-             background-size:cover;
-             padding: 20%;}
-/*.thumb2 h3:hover, .thumb2 p:hover, .thumb2 button:hover{visibility: visible;}   */       
+   
+/*.trumb2{visibility: visible; padding: 0;}
+.trumb2:hover{visibility: visible; padding: 0;}*/
 @media screen and (max-width: 768px){
     .navbar-nav li{padding: 0;}
 }
