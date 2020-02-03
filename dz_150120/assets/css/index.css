@@ -223,6 +223,8 @@ q{font-family: 'Ubuntu Condensed', sans-serif; font-size:1.5rem;}
 
 .thumb1{margin-top: 2%;}
 .trumb2 h3, .trumb2 p{color:white; width:90%; padding-left: 5%; padding-top: 2%}
+.trumb2 h3{font-size:2rem;}
+.trumb2 p{font-size:1rem;}
 .btn_f_img{
     background-color: #aaaaaa; color:white; border-color: white; border-radius: 5px; border-width:1px; border-style: solid;
     padding:2% 5% 2% 5%;
@@ -322,6 +324,8 @@ q{font-family: 'Ubuntu Condensed', sans-serif; font-size:1.5rem;}
     #contact .map{ padding:5%;}
     #contact .follow{padding-left: 2%;}
     #contact .setka{position: absolute; top:2%; }
-    .lnks col-4 {padding-left: 20%;
+    .lnks col-4 {padding-left: 20%;}
+    .trumb2 h3{font-size:1.5rem;}
+    .trumb2 p{font-size:0.8rem;}
 }
-}
+
