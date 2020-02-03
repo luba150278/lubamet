@@ -150,8 +150,7 @@ q{font-family: 'Ubuntu Condensed', sans-serif; font-size:1.5rem;}
 .rht img,.cntr img,.lft img{display: block; }
 .gr_lbl{padding-top: 22%;}
 .or_lbl{padding-top: 15%;}
-.btn_det{text-align: right;
-    padding-right: 15%;}
+.btn_det button{margin-left: 60%;}
 .btn_det2{box-shadow: 0px 3px 0px 0px #124f61;}
 
 /*шестой блок*/
@@ -167,11 +166,8 @@ q{font-family: 'Ubuntu Condensed', sans-serif; font-size:1.5rem;}
 #footer [type="text"]{width:100%; height: 1.7rem; border-radius:2px; border:0; padding: 0}
 .btn_sign{text-align: right; padding-top: 7%;}
 
-.square {
-    width: 50px;
-    height: 50px;
-    background: white;
-    text-align: right;
+.lnks img {
+    padding-left: 10%;
 }
 
 #footer .container>img{text-align: right;}
@@ -319,11 +315,13 @@ q{font-family: 'Ubuntu Condensed', sans-serif; font-size:1.5rem;}
 #contact .follow h2{font-family: 'Bebas Neue', cursive; font-size:2rem; color: #515862;}
 
 @media screen and (max-width: 768px){
-    .slid{padding-left: 60%; padding-bottom: 10%}
+    .slid{padding-left: 50%; padding-bottom: 10%}
     .navbar-nav li{padding: 0;}
     #portfolio_main>.container>.row_pad{padding: 0;}
     .im_nav{display: none;}
     #contact .map{ padding:5%;}
     #contact .follow{padding-left: 2%;}
     #contact .setka{position: absolute; top:2%; }
+    .lnks col-4 {padding-left: 20%;
+}
 }
