@@ -16,23 +16,24 @@ body{background: #f4f4f4; }
 
 .btn-primary{border: 0; padding-left: 5%; padding-top:2%; padding-right: 5%; padding-bottom:2%;font-family: 'Ubuntu Condensed', sans-serif; font-size:0.8rem; background: #218fc0;}
 
-header>.container{padding-top: 1%; padding-bottom: 0.4%;}
+header>.container{}
 .navbar-nav{font-size: 1rem;
 color: #515862;
 font-family: 'Ubuntu', sans-serif;
 /*text-align: center;*/
 }
 
-header>.container>.row{padding-left: 8.5%;  }
+header>.container>.row{ box-sizing: border-box;}
 .logo{padding-top: 1%}
 
-.menu_bar{padding-left: 0%; padding-top: 0.5%;}
+.menu_bar{}
 .navbar{padding:0;justify-content: flex-end;}
 
 .dropdown-menu{min-width: 5rem;}
-.navbar-nav li, .dropdown-item{padding-right: 3%; font-family: 'Ubuntu', sans-serif; font-weight: bold; font-size:0.9rem; }
+.navbar-nav{}
+.navbar-nav li, .dropdown-item{padding-right: 10%; font-family: 'Ubuntu', sans-serif; font-weight: bold; font-size:0.9rem; }
 .dropdown-item{color:#55565b; padding: auto;}
-.navbar-nav li:hover,.dropdown-item:hover{background: #fa8661;}
+.navbar-nav li:hover,.dropdown-item:hover{background: #12a3d6;}
 a{color:#55565b;}
 a:hover{cursor:pointer;}
 .active{color:#2190c1;}
@@ -144,6 +145,7 @@ q{font-family: 'Ubuntu Condensed', sans-serif; font-size:1.5rem;}
 .centr_test h3{color:#fa8661; font-family: 'Ubuntu', sans-serif; font-size:1rem; font-weight:bold;padding-top: 5%;}
 
 .people{display: flex; justify-content: center; padding-top: 2%}
+.people>div:hover{cursor: pointer;}
 .rht,.cntr{padding-right: 1%;}
 .rht img,.cntr img,.lft img{display: block; }
 .gr_lbl{padding-top: 22%;}
@@ -181,15 +183,16 @@ q{font-family: 'Ubuntu Condensed', sans-serif; font-size:1.5rem;}
 
 
 /*-----Старинца портфолио------------------*/
-#portfolio_main,#portfolio_nav{text-align: center; background: #f4f4f4; }
+#portfolio_main,#portfolio_prom,#portfolio_nav{text-align: center; background: #f4f4f4; }
 #portfolio_main>.container>.row{justify-content: center; }
+#portfolio_main>.container>.row_pad{justify-content: center; padding-left: 20%;padding-right: 20%}/*картинки списком*/
 /*#portfolio_main>.container>.photos>div{padding: 0;}*/
 /*#portfolio_main>.container>.photos>a> img{width: 100%;}*/
-#top_main_pf h1,#portfolio_main h1{font-size: 5rem;}
+#top_main_pf h1,#portfolio_prom h1{font-size: 5rem;}
 #top_main_pf h1{padding: 6.5% 0% 10% 0%;}
-#portfolio_nav>.container>.promo{padding: 0; padding-top:1%; }
- #portfolio_nav h1{color: #2190c1;}
- #portfolio_nav{
+#portfolio_prom>.container>.promo{padding: 0; padding-top:1%; }
+ #portfolio_prom h1,#about h1:first-child,#contact h1{color: #2190c1;}
+ #portfolio_nav,#clients,#devices{
     border-top-color:#b3d5e4; 
     border-top-style: solid; /* Стиль линии */
     border-top-width: 1px; /* Толщина линии */   
@@ -199,8 +202,9 @@ q{font-family: 'Ubuntu Condensed', sans-serif; font-size:1.5rem;}
 
 
      }
-     .categ{background: #2190c1;}
- #portfolio_main>.container>hr{ background-color: #b3d5e4; margin-top:1%; margin-bottom: 1%;}
+.categ{background: #2190c1;}
+ .im_nav{padding: 1.5%; }
+ .im_nav>img{padding-right: 10%;}
 
 #portfolio_nav .nav-item{
     border-right-color: #bab9ba; /* Цвет линии справа */
@@ -222,9 +226,104 @@ q{font-family: 'Ubuntu Condensed', sans-serif; font-size:1.5rem;}
 .sel_or_not{padding-left: 55%;}
 
 .thumb1{margin-top: 2%;}
-   
-/*.trumb2{visibility: visible; padding: 0;}
-.trumb2:hover{visibility: visible; padding: 0;}*/
+.trumb2 h3, .trumb2 p{color:white; width:90%; padding-left: 5%; padding-top: 2%}
+.btn_f_img{
+    background-color: #aaaaaa; color:white; border-color: white; border-radius: 5px; border-width:1px; border-style: solid;
+    padding:2% 5% 2% 5%;
+    width: 60%;
+
+}
+.fas{padding-right: 5%;}
+.btns{display: flex; padding: 5%;}
+.btns>button{border-radius: 5px; outline: none; border:0; background-color: #aaaaaa; margin-right: 5%; color:white;}
+.btns>.pages{background-color: #2190c1;  width: 220px;}
+.btns>.pages>a{color: white;}
+.btns>.pages>a:hover{color:#f88560;}
+.fa-arrow-right{padding-left: 5%;}
+
+#clients>.container{text-align: center; padding-top: 2%;}
+#clients>.container img{padding-right: 5%; padding-bottom: 5%;}
+
+/*----ABOUT*/
+#about>.container,#devices>.container,#our_team>.container,#contact>.container{text-align: center; padding-top: 1%;}
+#about h1, #our_team h2,#contact h1{font-family: 'Bebas Neue', cursive; font-size:3.5rem;}
+#about>.container>h1:last-child{font-size:3.5rem; color:#515862; word-spacing: 1rem; padding-bottom: 1%;}
+#about>.container>p, #devices>.container p,#our_team .membs>p,#contact>.container p{color:#515862;font-family: 'Ubuntu', sans-serif; font-size:1rem;}
+#devices>.container p{padding-left: 2%; padding-right: 2%;}
+#devices>.container{padding-top: 2%;}
+#devices{ border-top-color:#dcdcdc; border-bottom-color:#dcdcdc; }
+#devices img{height:  80px;}
+#devices h3{color:#2190c1; font-family: 'Myriad Pro Regular'; font-size:1.5rem; padding-top: 10%; padding-bottom: 5%;}
+#devices>.container,#devices>.container>.row, #devices .dev_div{padding: 0; margin 0;}
+
+#devices .dev_div{
+    padding-right: 2%;
+    padding-left: 2%; 
+    border-color:#dcdcdc; 
+    border-style: solid; /* Стиль линии */
+    border-width: 1px; /* Толщина линии */     
+     }
+
+#devices .mid_ved{padding-top: 15%;}
+#our_team .top{display: flex; }
+#our_team .head_membs{display: block; padding-top: 4%;}
+#our_team .head_membs p, #our_team .head_membs a{padding: 0;margin: 0;}
+#our_team h2{padding-top:2%;padding-bottom: 3%;}
+/*#our_team .row{padding-bottom: 3%;}*/
+#our_team .membs{border-color:#dcdcdc; 
+    border-style: solid; /* Стиль линии */
+    border-width: 1px; /* Толщина линии */ 
+    margin-right: 10%;
+}
+#our_team .membs {box-shadow: -12px -12px 0px -1px rgba(211,211,211,1);}
+#our_team .membs_men {box-shadow: 12px -12px 0px -1px rgba(211,211,211,1);}
+#our_team .row_membs>div{padding-bottom:5%;} 
+#our_team .top img{padding-top:10%; padding-left:10%;}
+#our_team .membs>p{padding-top:5%; padding-left:2%; padding-right: 2%;}
+#our_team .head_membs>p:nth-child(1){color:#515862; font-family: 'Myriad Pro Regular'; font-size:1rem;}
+#our_team .head_membs>p:nth-child(2){font-family: 'Bebas Neue', cursive; font-size:1.5rem; color: #218fc0;}
+#our_team .head_membs>a{color:#94979b; font-family: 'Ubuntu', sans-serif; font-weight: bold; font-size:0.8rem;}
+#our_team .top .head_membs img{padding:0;}
+#our_team>.container{padding-bottom: 5%; padding-right: 5%; padding-left: 5%;}
+
+
+#contact .colortext{color: red;}
+#contact .frm_contact{text-align: left;}
+#contact .frm_contact form input, textarea{width: 100%; }
+#contact .frm_contact form label, .rght_contact{color:#515862; font-family: 'Ubuntu', sans-serif;  font-size:1rem; padding-top: 5%;}
+#contact .frm_contact form .msg{ height:200px;}
+#contact>.container{padding-top:2%;padding-bottom: 5%}
+#contact>.container>.row{padding-top:2%; text-align: left;}
+/*#contact>.container>.row .rght_contact img{padding-top: 10%; padding-left: 40%;}*/
+#contact>.container .rght_contact{padding-left: 5%; color:#8f8d87; font-size:0.8rem;}
+#contact>.container>.row>div:first-child{border-color:#dcdcdc; 
+    border-right-style: solid; /* Стиль линии */
+    border-right-width: 1px; /* Толщина линии */
+    padding-right: 5%; 
+    }
+#contact>.container>.row>div>div:first-child{padding-top: 10%;}
+#contact>.container>.row>div>div{padding-bottom: 2%;}
+#contact .capcha{display: flex; padding: 0; margin: 0}
+#contact .sub{display: block; padding: 0; margin: 0;padding-left: 30%; width: 100%;}
+#contact .sub input{margin-bottom: 5%;}
+#contact .sub .inv{visibility: hidden; color:green;};
+
+/*#contact .rght_contact{color:#8f8d87;}*/
+#contact .phone .where{color:#0988b9;}
+#contact .rght_contact a{color:#0988b9; text-decoration: underline; }
+#contact .setka{position: absolute; top:7%; }
+#contact .img_capcha{ background: url('../img/capcha.png')  no-repeat center top; }
+#contact .btn_send{margin-left:75%;}
+#contact .map{ padding: 5% 5% 5% 10% ; }
+#contact .follow{text-align: center; padding-top: 5%;width: 85%;}
+#contact .follow h2{font-family: 'Bebas Neue', cursive; font-size:2rem; color: #515862;}
+
 @media screen and (max-width: 768px){
+    .slid{padding-left: 60%; padding-bottom: 10%}
     .navbar-nav li{padding: 0;}
+    #portfolio_main>.container>.row_pad{padding: 0;}
+    .im_nav{display: none;}
+    #contact .map{ padding:5%;}
+    #contact .follow{padding-left: 2%;}
+    #contact .setka{position: absolute; top:2%; }
 }
