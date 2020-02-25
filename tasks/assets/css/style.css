@@ -1,0 +1,5 @@
+h1:hover,h2:hover,h3:hover,p:hover,input:hover{color:red;}
+.ques{display: flex;}
+.cbx,.year{margin-top: 2.5%;
+    margin-left: 1%;}
+.year{width: 100px; height: 1.2rem; margin-top: 2%;}

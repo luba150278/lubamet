@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Решение задач JS</title>
+    <script  src="https://code.jquery.com/jquery-3.4.1.js" integrity="
+	sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <script src="https://zero.p2p.shpp.me/console.js"></script>
+<!----------------------------------------------------------------------------->
+<h1>Задача. Привіт світ!</h1>
+    <h2>Первое задание:Вивести на екран слова "hello world"</h2>
+        <p id='p1'>Результат:</p>
+        <script>      
+            create_str('Hello',p1);
+            create_str('World!',p1);  
+            function create_str(str,id){
+                let h3 = document.createElement('h3');
+                h3.innerHTML=str;               
+                id.append(h3);        
+               
+            };
+        </script>
+    <hr>
+    
+    <!----------------------------------------------------------------------------->
+    <h2>Второе задание:вивести на экран суму чисел 12892323+454665768</h2>
+    <p id="p2">Результат:</p>
+            <script>      
+                var first_numb=12892323;
+                var second_numb=454665768;
+                var sum=first_numb+second_numb;
+                create_str(sum,p2);//таже функция используется, что и в первом задании 
+            </script>
+    <hr><hr>
+<!----------------------------------------------------------------------------->
+<h1>Задача. Поменяти міцями дві змінних</h1>    
+    <script>
+        function changePlace() {
+            var a=+prompt('Введите первую переменную');
+            var b=+prompt('Введите вторую переменную');
+
+            a = a + b; 
+            b = a - b; 
+            a = a - b;
+            create_str('Теперь в первой переменной имеем значение: '+a,p3);
+            create_str('А во втрой переменной имеем значение: '+b,p3);
+        }
+    </script>
+
+    <input type="button" onclick="changePlace()" value="Ввести переменные">
+    <p id="p3">Результат:</p>
+
+<!----------------------------------------------------------------------------->
+<hr>
+<h1>Задача. Дізнатися номер.</h1>
+    <script>
+        function findNum() {
+            var a=+prompt('Привет! Введи число')+1;          
+            create_str('Круто. Теперь я добавлю единичку и получится число: '+a,p4);                   
+        }
+    </script>
+
+    <input type="button" onclick="findNum()" value="Узнать номер">
+    <p id="p4">Результат:</p>
+
+<!----------------------------------------------------------------------------->
+<hr>
+<h1>Сума двох чисел.</h1>
+    <script>
+    function findSum() {
+        var a=+prompt('Введите первую переменную');
+        var b=+prompt('Введите вторую переменную');         
+        create_str('Круто. Я сложила числа и у меня получилось: '+(a+b),p5);                   
+    }
+    </script>
+
+    <input type="button" onclick="findSum()" value="Сложить два числа">
+    <p id="p5">Результат:</p>
+
+<!----------------------------------------------------------------------------->
+<hr>
+<h1>Задача. Км на день.</h1>
+    <script>
+    function kmDay() {
+        var a=+prompt('Эй, сколько км в день ты проходишь?');
+        var str;
+        if(a<=3){str='Маловато будет...'}
+        else{str='Молодец!'}
+        create_str(str,p6);                   
+    }
+    </script>
+
+    <input type="button" onclick="kmDay()" value="Узнать норму">
+    <p id="p6">Результат:</p>
+
+<!----------------------------------------------------------------------------->
+<hr>
+<h1>Задача. Км на день2.</h1>
+    <script>
+    function kmDay() {
+        var a=+prompt('Эй, сколько км в день ты проходишь?');
+        var str;
+        if(a<=3){str='Маловато будет...'}
+        else if(a>3 && a<20){str='Молодец!'}
+        else if(a>20){str='Марафонец!'}
+        create_str(str,p7);                   
+    }
+    </script>
+
+    <input type="button" onclick="kmDay()" value="Узнать норму">
+    <p id="p7">Результат:</p>
+<!----------------------------------------------------------------------------->
+<hr>
+<h1>Задача про ліфт.</h1>
+    <script>
+    function kmDay2() {
+        var a=+prompt('Какой этаж вам нужен?');
+        var str;
+        if(a<1||a>9){str='Неверная цифра';return false;}
+        if(a<=3 || a>=7){str='ОК'}
+        else{
+            var parol=prompt("Введите пароль");
+            if(parol==1337){str="OK"}
+            else{str="Неверный пароль"}
+        }
+        create_str(str,p8);                   
+    }
+    </script>
+
+    <input type="button" onclick="kmDay2()" value="Какой этаж">
+    <p id="p8">Результат:</p>
+
+<!----------------------------------------------------------------------------->
+<hr>
+<h1>Задача про setAlarm.</h1>
+
+    <form>
+        <div class="ques">
+            <h2>Вы сейчас в работаете?</h2>
+            <input type="checkbox" class="cbx" id="work_quest">
+        </div>
+        <div class="ques">
+            <h2>Вы сейчас в отпуске?</h2>
+            <input type="checkbox" class="cbx" id="vac_quest">
+        </div>
+    </form>
+
+    <script>
+        function quest() {
+            var employed=false;
+            var vacation=false;
+            var str="";
+
+            if($('#work_quest').is(":checked")){employed=true;}
+            if($('#vac_quest').is(":checked")){vacation=true;}
+
+            var prov=setAlarm(employed,vacation);
+            if(prov==true){str="Будильник звенит"}
+            else{str="Будильник отключен"}
+
+            create_str(str,p9);                   
+        }
+
+        function setAlarm(employed,vacation){
+                if(employed==true && vacation==false){return true;}
+                else{return false;}
+        }
+    </script>
+
+    <input type="button" onclick="quest()" value="Прверить будильник">
+    <p id="p9">Результат:</p>
+
+<!----------------------------------------------------------------------------->
+<hr>
+<h1>Задача про Скільки мені буде років в 2099 році?.</h1>
+
+    <form>
+        <div class="ques">
+            <h2>Ваш год рождения:</h2>
+            <input type="text" class="year" id="year_born">
+        </div>
+        <div class="ques">
+            <h2>Искомый год:</h2>
+            <input type="text" class="year" id="year_search">
+        </div>
+    </form>
+
+    <script>
+        function yearsOld() {
+            var year_born=parseInt($('#year_born').val());
+            var year_search=parseInt($('#year_search').val());
+
+            var str="";
+            var add_y="";
+            var res=year_search-year_born;
+            var past_res=Math.abs(res);
+            //----смотрим год или годы----
+            if(past_res!=1){add_y="years"}
+            else{add_y="year"}
+
+            //----результат----
+            if(res<0){str='You will be born in '+ past_res + ' '+add_y+'.';}//прошлое
+            if(res>0){str='You are '+ past_res  + ' '+add_y + ' old.';}//будущие
+            if(res==0){str='You were born this very year!';}//текущий год
+
+            create_str(str,p10);                   
+        }        
+    </script>
+
+    <input type="button" onclick="yearsOld()" value="Узнать">
+    <p id="p10">Результат:</p>
+
+<!----------------------------------------------------------------------------->
+<hr>
+<h1>Задача про Парне/Непарне.</h1>
+
+    <form>
+        <div class="ques">
+            <h2>Введите целое число:</h2>
+            <input type="text" class="year" id="prov_odd">
+        </div>       
+    </form>
+
+    <script>
+        function provOdd() {
+            var num=parseInt($('#prov_odd').val());  
+            var str="";
+            if(num%2==0){str="Even"}
+            else{str="Odd"}        
+            create_str(str,p11);                   
+        }        
+    </script>
+
+    <input type="button" onclick="provOdd()" value="Проверить четность числа">
+    <p id="p11">Результат:</p>
+<!----------------------------------------------------------------------------->
+<hr>
+<h1>Задача про переведення boolean значень в рядки yes або no.</h1>
+  
+<script>
+    function conv(){
+        //----для формирования true/false возьму значения из checkbox в задании про alarm          
+        var str="";   
+        str=convert_bool_in_text($('#work_quest').is(":checked"));
+        create_str(str,p12);
+
+    }
+
+    function convert_bool_in_text(x) {
+                 if (x==true){return 'YES'} 
+                 else{return 'NO'}   
+    }    
+</script>
+
+<input type="button" onclick="conv()" value="Преобразовать">
+<p id="p12">Результат:</p>
+
+<!----------------------------------------------------------------------------->
+<hr>
+<h1>Задача. Зірочки.</h1>
+<form>
+    <div class="ques">
+        <h2>Выделить checkbox - использовать 'for', не выделять - 'while' </h2>
+        <input type="checkbox" class="cbx" id="for_or_while">
+    </div>
+   
+</form>
+<script>
+    function zir(){
+
+        var str="Выведем 10 звездочек"+'<br>';
+        var spos=true;
+        if($('#for_or_while').is(":checked")) {spos=false;}
+              
+       
+        str=str+zir_on(10,spos)+'<br>';      
+        
+        str=str+"Теперь выведем 100 звездочек"+'<br>';
+        str=str+zir_on(100,spos)+'<br>';
+
+        str=str+"А теперь выведем 10000 звездочек"+'<br>';
+        str=str+zir_on(10000,spos)+'<br>';
+
+        var how_match=+prompt("Сколько Вам звездочек вывести?");
+        str=str+"Пользователь хочет "+ how_match+' звездочек. Выводим и их'+'<br>';
+        str=str+zir_on(how_match,spos)+'<br>';
+
+        create_str(str,p13);
+
+        }
+        
+       
+        function zir_on(count, spos)
+        { 
+            str="";
+            var i=1;
+            if (spos==true){
+                while(i<=count){
+                    str=str+'*';
+                    if(i%100==0){str=str+'<br>';}
+                    i++;
+                }
+            }
+            else
+            {
+                for(i=1;i<=count;i++){str=str+'*'; if(i%100==0){str=str+'<br>';}}
+
+            }
+            return str;
+        }
+        
+    
+
+   
+</script>
+
+<input type="button" onclick="zir()" value="Выводим звездочки">
+<p id="p13">Результат:</p>
+
+<!----------------------------------------------------------------------------->
+<hr>
+<h1>Задачі про числа</h1>
+
+<script>
+    function numbs(){
+
+        var str="1. вивести на екран числа від 1 до N (де N - це число, яке введе користувач)"+'<br>';
+        var N=+prompt("Введите положительное число");
+        var str_numbs="";
+        for(var i=1;i<=N;i++){
+            str_numbs=str_numbs+i;
+            if(i<N){str_numbs=str_numbs+", ";}
+        }
+         str=str+str_numbs;
+        //---используем while
+        str=str+'<br>'+'<br>'+'2. Тоже самое, но с циклом while'+'<br>';   
+       
+        str_numbs="";
+        i=1;
+        while(i<=N){
+            str_numbs=str_numbs+i;
+            if(i<N){str_numbs=str_numbs+", ";}
+            i++;
+        }
+         str=str+str_numbs;
+
+         str=str+'<br>'+'<br>'+'3. Числа в обратном порядке'+'<br>'; 
+         var str_numbs="";
+        for(var i=N;i>=1;i--){
+            str_numbs=str_numbs+i;
+            if(i>1){str_numbs=str_numbs+", ";}
+        }
+         str=str+str_numbs;
+         
+         str=str+'<br>'+'<br>'+'4. Только четные числа'+'<br>'; 
+         var str_numbs="";
+         for(var i=1;i<=N;i++){
+            str_numbs=str_numbs+i;
+            if(i<N){str_numbs=str_numbs+", ";}
+        }
+         str=str+str_numbs;
+
+        create_str(str,p14);
+    }    
+   
+</script>
+
+<input type="button" onclick="numbs()" value="Выводим числа">
+<p id="p14">Результат:</p>
+   
+</body>
+
+
+<link rel="stylesheet" href="assets/css/style.css">
+</html>
