@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+</head>
+<body>
+	<div id="block" class="test">test block content</div>
+</body>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script >
+		var $=jQuery;
+console.log($('#block').html());
+console.log($('#block').html('<h1>test123</h1>'));
+
+$('#block').click(function()
+{
+	$('#block').append('<h1>test234</h1>');
+	$('#block').prepend('<h1>!!!!</h1>');
+});
+	</script>
+</html>

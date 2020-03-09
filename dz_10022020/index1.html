@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Hello, world!</title>
+  </head>
+  <body>
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<button onclick="prev();">Предыдущая страница</button>
+					<button onclick="next();">Следующая страница</button>
+				</div>
+			</div>		
+			<div class="row">
+				<div class="col-md-12" id="product_list">
+					<div class="row"></div>
+				</div>
+			</div>
+		</div>
+	</section>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+  <style>
+	.bold {
+		font-weight: bold;
+	}
+	
+	.product-inner {
+		padding: 10px;
+	}
+	
+	.product-inner .product-image {
+		width: 100%;
+		height: 300px;
+		background-repeat: no-repeat;
+		background-color: #000;
+		background-position: center;
+		background-size: contain;
+	}
+	
+	#product_list .row .col-md-12 .product-inner {
+		display: flex;
+	}
+	
+	#product_list .row .col-md-12 .product-content {
+		width: 75%;
+		padding: 0 25px;
+	}
+	#product_list .row .col-md-12 .product-image {
+		width: 25%;
+		height: 200px;
+	}
+  </style>
+  <script>
+  /*
+	Создадим 2 переменные, в которых будут содержаться номер текущей страницы и количество
+	записей на 1 странице. По желанию products_per_page можно изменить на любое число.
+	В current_page будем записывать номер текущей страницы при каждом переходе между страницами.
+  */
+  var current_page = 1;
+  var products_per_page = 9;
+  
+  /*
+	Для удобства генерирования HTML карточки товара - вынесем код генерирования HTML в отдельную
+	функцию. Функция принимает 1 переменную product, в которой будет содержаться информация о товаре
+  */
+  function getProductHtml(product){
+		return '<div class="col-md-3"><div class="product-inner">'
+	+'<div class="product-image" style="background-image:url('+product.image+');"></div>'
+	+'<div class="product-content"><h2>'+product.productName+'</h2>'
+	+'<p class="price">Цена: '+product.MSRP+' грн.</p>'
+	+'<p class="desc">'+product.productDescription+'</p>'
+	+'</div></div></div>';
+  }
+  
+  /*
+	Функция getProducts создана для выполнения запроса к серверу и вывода полученных результатов.
+	Принимает 2 параметра page и perpage
+	page - номер страницы, которую нужно получить.
+	perpage - количество товаров отображаемых на странице.
+	Эти 2 переменные отправляются на сервер для получения необходимых данных. С их помощью, можем регулировать,
+	какую конкретно страницу отображаем и сколько должно выводиться товаров на каждой странице.
+	*/
+  function getProducts (page, perpage){
+	current_page = page; //присваиваем переменной current_page номер страницы, которую хотим получить
+	var xhr = new XMLHttpRequest(); //далее следует код, сгенерированный программой Postman
+	xhr.withCredentials = true;
+
+	xhr.addEventListener("readystatechange", function() { //эта часть кода также сгенерирована программой Postman
+	  if(this.readyState === 4) {						//представляет собой добавление функции, которая должна выполниться при выполнении запроса
+		// эта часть выполняется при успешном выполнении запроса
+		// содержит ващ код, который нужно выполнить при успешном выполнении запроса к серверу
+		
+		var products = JSON.parse(this.responseText);	//в этой строке переводим полученный от сервера ответ в формате JSON, в JavaScript-объект, с которым можно работать, как с обычным JS-объектом/массивом
+		console.log(products); // выводим в консоль браузера полученный ответ, чтобы иметь возможность посмотреть в каком виде массив получен с сервера											
+		if (products.length == 0) { //если количество товаров, полученных с сервера равно нулю (в данном конкретном случае), значит достигнута последняя страница
+			alert('Вы достигли последней страницы'); //выводим сообщение пользователю об этом.
+			current_page--; //и уменьшаем переменную current_page на 1 единицу, т.к. страницы с таким номером не существует
+			return; //завершаем выполнение функции, т.к. здесь делать больше нечего
+		}
+		//если программа дошла до этого момента - значит товары все же есть
+		var container = document.querySelector('#product_list .row'); //получаем объект контейнера, в который будем добавлять товары
+		container.innerHTML = ''; //очищаем его, присваиванием пустой строки
+		
+		for (var i = 0; i < products.length; i++) { //перебирая по очереди все элементы массива - обрабатввем все товары
+			container.innerHTML += getProductHtml(products[i]); //в данном случае в контейнер помещаем готовый HTML,
+		}														//сгенерированный функцией getProductHtml, в которую передали products[i], который содержит текущий элемент массива
+	  }
+	});
+	//далее следует код, сгенерированный программой Postman, в котором я заменил значение параметров (вместо статических данных - переменные)
+	//код, который приведен ниже сообщает, куда нужно направить запрос и его тип
+	//и выполняет, собственно, отправку запроса
+	xhr.open("GET", "http://test.itnyou.top/api.php?page="+page+"&perpage="+perpage);
+	xhr.send();
+  }
+  
+  /* 
+	Функия, которая выполняет переход на предыдущую страницу
+  */
+  function prev () {
+	  if (current_page == 1) //проверяем, не находится ли пользователь на первой странице
+		  alert("Вы находитесь на первой странице"); //и если находится - выводим сообщение о том, что он на первой странице (нулевой страницы нет)
+	  else
+		  getProducts((current_page - 1), products_per_page); //если пользователь не на первой странице - выводим страницу с номером, который на 1 единицу меньше текущего
+  }
+  
+  /* 
+	Функия, которая выполняет переход на следующую страницу
+  */
+  function next () { 										//проверка на последнюю страницу не проводится, т.к. в связи с тем, что конечное число страниц заранее неизвестно - 
+															//узнать есть ли на след. странице товары, можем только попробовав получит след. страницу.
+															//в связи с этим - проверка на последнюю страницу, выполняется при получении ответа от сервера
+		  getProducts((current_page + 1), products_per_page); //выводим страницу с номером, который на 1 единицу больше текущего
+  }
+  //вызываем функцию getProducts, чтобы получить первую страницу сразу во время загрузки страницы
+  getProducts(1, products_per_page);
+  </script>
+</html>
